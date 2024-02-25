@@ -1,0 +1,39 @@
+{% extends "event/base.html" %}
+
+{% block title %}
+    Update event
+{% endblock  %}
+
+{% block body %}
+<div class="container">
+    <h6 class="text-center m-5">Update Event details</h6>
+
+
+    <form action="{% url 'update_event' event.id %}" method="post" autocomplete="off">
+        {% csrf_token %}
+        <br>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Event details</label>
+            <div class="col-sm-10">
+                <textarea name="event_details" required>{{ event.Event_details }}</textarea>
+            </div>
+        </div>
+        <br>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Location</label>
+            <div class="col-sm-10">
+                <textarea name="location_details">{{ event.Location }}</textarea>
+            </div>
+        </div>
+        <br>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Contact details</label>
+            <div class="col-sm-10">
+                <textarea  name="contact_details">{{ event.Contact_details }}</textarea>
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-primary mb-2 mt-2">Submit</button>
+    </form>
+</div>
+{% endblock  %}

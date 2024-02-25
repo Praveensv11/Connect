@@ -1,0 +1,36 @@
+{% extends "event/base.html" %}
+
+{% block title %}
+    Home page
+{% endblock  %}
+
+{% block body %}
+    <div class="container">
+        <br>
+        {% if user.is_authenticated %}
+            <h6 class="text-center">{{ user }}</h6>
+            <button class="btn btn-light btn-sm"><a href="{% url 'create_event' %}" class="btn btn-light btn-sm">Create event</a></button>
+
+        {% endif %}
+        <a href="{% url 'signin' %}" class="btn btn-secondary">Sign in</a>
+        <a href="{% url 'signup' %}" class="btn btn-secondary">Sign up</a>
+    
+        <hr>
+        {% if user.is_authenticated %}
+            {% for event in events %}
+                <p>Host name : {{ event.Host_name }}</p>
+                <p>Event details : {{ event.Event_details }}</p>
+                <p>Location : {{ event.Location }}</p>
+                <p>Contact details : {{ event.Contact_details }}</p>
+                {% if user == event.Host_name %}
+                    <a href="{% url 'update_event' event.id %}" class="btn btn-primary btn-sm">Update</a>
+                    <a href="{% url 'delete_event' event.id %}" class="btn btn-danger btn-sm">Delete</a>
+                {% endif %}
+                <hr>
+            {% endfor %}
+        {% else %}
+            <h1>Sign in to continue</h1>
+        
+        {% endif %}
+    </div>
+{% endblock  %}

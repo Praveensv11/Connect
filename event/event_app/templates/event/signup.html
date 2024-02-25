@@ -1,0 +1,53 @@
+{% extends "event/base.html" %}
+
+{% block title %}
+Sign up
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h6 class="text-center mt-5 mb-3">Create new account</h6>
+
+        {% for message in messages %}
+            <p class="text-warning bg-dark p-3">{{message}}</p>
+        {% endfor %}
+
+        <form action="{% url 'signup' %}" method="POST" autocomplete="off">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Username</label>
+                <div class="col-sm-10">
+                    <input type="text" name="username"  required><br>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">First name</label>
+                <div class="col-sm-10">
+                    <input type="text" name="fname"  required><br>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Last name</label>
+                <div class="col-sm-10">
+                    <input type="text" name="lname" required><br>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" name="pass1" required><br>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Confirm password</label>
+                <div class="col-sm-10">
+                    <input type="password" name='pass2' required><br>
+                </div>
+            </div>
+    
+            <button class="btn btn-primary mb-2 mt-2">Submit</button>
+        </form>
+
+        <a href="{% url 'signin' %}">Already have an account?</a>
+    </div>
+{% endblock  %}

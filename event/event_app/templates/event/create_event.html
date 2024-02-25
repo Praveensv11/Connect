@@ -1,0 +1,38 @@
+{% extends "event/base.html" %}
+
+{% block title %}
+    Create event
+{% endblock  %}
+
+{% block body %}
+    <div class="container">
+        <h1>Create event</h1>
+
+        <form action="{% url 'create_event' %}" method="post" autocomplete="off">
+            {% csrf_token %}
+            <br>    
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Event details</label>
+                <div class="col-sm-10">
+                    <textarea name="event_details"> </textarea>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Location</label>
+                <div class="col-sm-10">
+                    <textarea  name="Location_details"> </textarea>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Contact details</label>
+                <div class="col-sm-10">
+                    <textarea  name="Contact_details"></textarea>
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-primary mb-2 mt-2">Submit</button>
+        </form>
+    </div>
+{% endblock  %}
