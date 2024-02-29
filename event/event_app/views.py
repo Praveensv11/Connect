@@ -27,7 +27,7 @@ def create_event(request):
         obj.Contact_details = Contact_details
         obj.save()
 
-        return redirect('home')
+        return redirect('event:home')
     return render(request, 'event/create_event.html')
 
 def signup(request):
@@ -40,11 +40,11 @@ def signup(request):
 
         if pass1 != pass2:
             messages.error(request, "password do not match")
-            return redirect('signup')
+            return redirect('event:signup')
 
         if User.objects.filter(username=username).exists():
             messages.error(request, 'Username is already taken')
-            return redirect('signup')
+            return redirect('event:signup')
 
         myuser = User.objects.create_user(username=username, password=pass1)
         myuser.first_name = fname
@@ -52,7 +52,7 @@ def signup(request):
         myuser.save()
 
         messages.success(request, 'Your account is created')
-        return redirect('signin')
+        return redirect('event:signin')
 
     return render(request, 'event/signup.html')
 
@@ -66,7 +66,7 @@ def signin(request):
         if user is not None:
             login(request, user)
 
-            return redirect('home')
+            return redirect('event:home')
         
         else:
             messages.error(request, 'Incorrect username or password')
@@ -86,7 +86,7 @@ def update_event(request, id):
         event.Contact_details = contact_details
         event.save()
 
-        return redirect('home')
+        return redirect('event:home')
 
     return render(request, 'event/update_event.html', {
         'event' : event
@@ -96,5 +96,5 @@ def delete_event(request, id):
     event = event_info.objects.get(pk=id)
     event.delete()
 
-    return redirect('home')
+    return redirect('event:home')
     

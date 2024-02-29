@@ -8,7 +8,7 @@
     <div class="container">
         <h1>Create event</h1>
 
-        <form action="{% url 'create_event' %}" method="post" autocomplete="off">
+        <form action="{% url 'event:create_event' %}" method="post" autocomplete="off">
             {% csrf_token %}
             <br>    
             <div class="form-group row">

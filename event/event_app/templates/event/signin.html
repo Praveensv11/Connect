@@ -12,7 +12,7 @@ Sign in
         <h6 class="text-warning bg-dark p-2">{{ message }}</h6>
     {% endfor %}
 
-    <form action="{% url 'signin' %}" method="POST" autocomplete="off">
+    <form action="{% url 'event:signin' %}" method="POST" autocomplete="off">
         {% csrf_token %}
         <div class="form-group row">
             <label class="col-sm-2 col-form-label" >Username</label>
@@ -29,6 +29,6 @@ Sign in
         <button class="btn btn-primary mb-2 mt-2">Submit</button>
     </form>
 
-    <p><a href='{% url "signup" %}'>Don't have an account?</a></p>
+    <p><a href='{% url "event:signup" %}'>Don't have an account?</a></p>
 </div>
 {% endblock  %}
