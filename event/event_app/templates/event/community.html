@@ -5,5 +5,8 @@
 {% endblock %}
 
 {% block body %}
-    Community page
+    <form action="{% url 'event:community' %}">
+        <input type="text" name="chat">
+        <button>Submit</button>
+    </form>
 {% endblock %}

@@ -99,4 +99,6 @@ def delete_event(request, id):
     return redirect('event:home')
     
 def community(request):
+    chat = request.POST["chat"]
+    
     return render(request, 'event/community.html')
