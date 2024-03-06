@@ -9,8 +9,8 @@ def home(request):
     user = request.user
 
     return render(request, 'event/index.html', {
+        'user' : user,
         'events' : events,
-        'user' : user
     })
 
 def create_event(request):
@@ -98,3 +98,5 @@ def delete_event(request, id):
 
     return redirect('event:home')
     
+def community(request):
+    return render(request, 'event/community.html')

@@ -14,6 +14,7 @@
         {% endif %}
         <a href="{% url 'event:signin' %}" class="btn btn-secondary">Sign in</a>
         <a href="{% url 'event:signup' %}" class="btn btn-secondary">Sign up</a>
+        <a href="{% url 'event:community' %}" class="btn btn-secondary">Community</a>
     
         <hr>
         {% if user.is_authenticated %}
@@ -30,7 +31,6 @@
             {% endfor %}
         {% else %}
             <h1>Sign in to continue</h1>
-        
         {% endif %}
     </div>
 {% endblock  %}
