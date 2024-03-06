@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block body %}
-    <form action="{% url 'event:community' %}">
+    <form action="{% url 'event:community' %}" method="POST" autocomplete="off">
+        {% csrf_token %%}
         <input type="text" name="chat">
         <button>Submit</button>
     </form>

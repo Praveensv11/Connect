@@ -9,3 +9,8 @@ class event_info(models.Model):
 
     def __str__(self):
         return f"Host : {self.Host_name}"
+    
+class chat(models.Model):
+    name = models.ForeignKey(event_info, on_delete=models.CASCADE, related_name = "name")
+    chat = models.CharField(max_length=10000, default="")
+    
