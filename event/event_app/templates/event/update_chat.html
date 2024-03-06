@@ -1,0 +1,8 @@
+{% extends "event/base.html" %}
+{% block body %}
+    <form action="{% url 'event:update_chat' chat.id %}" method="post" autocomplete="off">
+        {% csrf_token %}
+        <input name="chat" value="{{chat.chat}}">
+        <button>Submit</button>
+    </form>
+{% endblock %}

@@ -74,7 +74,7 @@ def signin(request):
     return render(request, 'event/signin.html')
 
 def update_event(request, id):
-    event = event_info.objects.get(pk=id)
+    event = event_info.objects.get(id=id)
 
     if request.method == "POST":
         event_details = request.POST['event_details']
@@ -99,10 +99,38 @@ def delete_event(request, id):
     return redirect('event:home')
     
 def community(request):
-    chat = None
+    username = request.user.username
+    allchat = Chat.objects.all()
+
     if request.method == "POST":
-        chat = request.POST.get("chat", "")
+        chat_text = request.POST.get("chat", "")
+
+        obj = Chat(name=username, chat=chat_text)
+        obj.save()
+
+        return redirect('event:community')
 
     return render(request, 'event/community.html', {
+        "allchat" : allchat,
+        "username" : username,
+    })
+
+def delete_chat(request, id):
+    chat = Chat.objects.get(pk=id)
+    chat.delete()
+    return redirect('event:community')
+
+def update_chat(request, id):
+    chat = Chat.objects.get(pk=id)
+
+    if request.method == "POST":
+        updateChat = request.POST['chat']
+
+        chat.chat = updateChat
+        chat.save()
+
+        return redirect('event:community')
+
+    return render(request, 'event/update_chat.html', {
         "chat" : chat
     })

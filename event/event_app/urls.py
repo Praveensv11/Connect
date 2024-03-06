@@ -10,4 +10,6 @@ urlpatterns = [
     path('update_event/<int:id>', views.update_event, name="update_event"),
     path('delete_event/<int:id>', views.delete_event, name="delete_event"),
     path('community/', views.community, name="community"),
+    path('community/delete_chat/<int:id>', views.delete_chat, name="delete_chat"),
+    path('community/update_chat/<int:id>', views.update_chat, name="update_chat"),
 ]
