@@ -8,6 +8,10 @@
     {% if user.is_authenticated %}
         <div class="container" style="height:100vh; display:flex; flex-direction:column;">
             <a href="{% url 'event:home' %}" class="m-3">Main page</a>
+
+            {% comment %} 
+                dispalyin all chat from database
+            {% endcomment %}
             {% for chat in allchat %}
                 {% if chat.name == username %}
                     <h3 class="d-flex justify-content-end">
@@ -21,6 +25,9 @@
                             </div>
                         </div>
                     </h3>
+                {% comment %} 
+                    If the chat is from user who loged in display the message in right side
+                {% endcomment %}
                 {% else %}
                     <div class="card border-secondary mb-3" style="max-width: 18rem;">
                         <div class="card-header">{{ chat.name }}</div>
@@ -30,9 +37,12 @@
                     </div>
                 {% endif %}
             {% empty %}
-                <h1>No chat!!</h1>
+                <h1>Start the conversation</h1>
             {% endfor %}
 
+            {% comment %} 
+                    form
+            {% endcomment %}
             <div class="d-flex align-items-end flex-column" style="height: 200px; flex:flex-end;">            
                 <form action="{% url 'event:community' %}" method="POST" autocomplete="off" class="mt-auto p-2">
                     {% csrf_token %%}
@@ -42,6 +52,9 @@
             </div>
         </div>
     {% else %}
+        {% comment %} 
+            if user not login display message to sign in
+        {% endcomment %}
         <div class="container p-5">
             <a href="{% url 'event:home' %}" class="m-3">Main page</a>
             <h3 class="text-center">Signin in to continue</h3>
