@@ -4,6 +4,10 @@
     Community page
 {% endblock %}
 
+{% block head %}
+    {% load static %}
+{% endblock  %}
+
 {% block body %}
     {% if user.is_authenticated %}
         <div class="container" style="height:100vh; display:flex; flex-direction:column;">
@@ -46,8 +50,8 @@
             <div class="d-flex align-items-end flex-column" style="height: 200px; flex:flex-end;">            
                 <form action="{% url 'event:community' %}" method="POST" autocomplete="off" class="mt-auto p-2">
                     {% csrf_token %%}
-                    <input type="text" name="chat" class="noemptydata ">
-                    <button>Submit</button>
+                    <input type="text" name="chat" id="noempty">
+                    <input type="submit" class="btn btn-danger" id="submit">
                 </form>
             </div>
         </div>
@@ -62,4 +66,5 @@
             <a href="{% url 'event:signin' %}" class="btn btn-secondary m-3">Signin</a>
         </div>
     {% endif %}
+    <script src="{% static 'js/noemptyform.js' %}"></script>
 {% endblock %}
