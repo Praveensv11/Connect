@@ -4,6 +4,10 @@
 Sign in
 {% endblock %}
 
+{% block head %}
+    {% load static %}
+{% endblock %} 
+
 {% block body %}
 <div class="container pt-5">
     <div class="d-flex">
@@ -33,5 +37,7 @@ Sign in
     </form>
 
     <p><a href='{% url "event:signup" %}'>Don't have an account?</a></p>
+
+    <script src="{% static 'js/messagedis.js' %}"></script>
 </div>
 {% endblock  %}

@@ -144,6 +144,7 @@ def report(request, id):
         obj = ReportUser(victim = request.user.username, reported_user=event_data.Host_name, report=report_text)
         obj.save()
         
+        messages.success(request, 'Reported!!..')
         return redirect('event:home')
 
     return render(request, 'event/report.html',{

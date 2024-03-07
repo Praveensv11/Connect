@@ -4,8 +4,16 @@
     Home page
 {% endblock  %}
 
+{% block head %}
+    {% load static %}
+{% endblock %} 
+
 {% block body %}
-    <div class="container">
+    <div class="container pt-1">
+        {% for message in messages %}
+            <h6 class="text-warning bg-dark p-2">{{ message }}</h6>
+        {% endfor %}
+
         <br>
         {% if user.is_authenticated %}
             <h6 class="text-center">{{ user }}</h6>
@@ -34,5 +42,7 @@
         {% else %}
             <h1>Sign in to continue</h1>
         {% endif %}
+
+        <script src="{% static 'js/messagedis.js' %}"></script>
     </div>
 {% endblock  %}
