@@ -41,12 +41,12 @@
             {% endfor %}
 
             {% comment %} 
-                    form
+                    chat form
             {% endcomment %}
             <div class="d-flex align-items-end flex-column" style="height: 200px; flex:flex-end;">            
                 <form action="{% url 'event:community' %}" method="POST" autocomplete="off" class="mt-auto p-2">
                     {% csrf_token %%}
-                    <input type="text" name="chat">
+                    <input type="text" name="chat" class="noemptydata ">
                     <button>Submit</button>
                 </form>
             </div>
