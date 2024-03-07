@@ -7,6 +7,7 @@
 {% block body %}
     {% if user.is_authenticated %}
         <div class="container" style="height:100vh; display:flex; flex-direction:column;">
+            <a href="{% url 'event:home' %}" class="m-3">Main page</a>
             {% for chat in allchat %}
                 {% if chat.name == username %}
                     <h3 class="d-flex justify-content-end">
@@ -41,9 +42,11 @@
             </div>
         </div>
     {% else %}
-        <p>Signin in to continue</p>
-        <a href="{% url 'event:signup' %}">Signup</a>
-        <br>
-        <a href="{% url 'event:signin' %}">Signin</a>
+        <div class="container p-5">
+            <a href="{% url 'event:home' %}" class="m-3">Main page</a>
+            <h3 class="text-center">Signin in to continue</h3>
+            <a href="{% url 'event:signup' %}" class="btn btn-secondary m-3">Signup</a>
+            <a href="{% url 'event:signin' %}" class="btn btn-secondary m-3">Signin</a>
+        </div>
     {% endif %}
 {% endblock %}
