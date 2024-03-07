@@ -16,3 +16,11 @@ class Chat(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.chat})"
+    
+class ReportUser(models.Model):
+    victim = models.CharField(max_length=64, default="")
+    reported_user = models.CharField(max_length=64, default="")
+    report = models.CharField(max_length=1000, default="")
+
+    def __str__(self):
+        return f"{self.victim} : {self.reported_user}"
