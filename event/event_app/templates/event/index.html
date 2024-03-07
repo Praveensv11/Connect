@@ -20,7 +20,7 @@
         <hr>
         {% if user.is_authenticated %}
             {% for event in events %}
-                <a href="" class="d-flex justify-content-end"><i class="fa-solid fa-circle-exclamation fa-xs" style="color: #ff1900;"></i></a>
+                <a href="{% url 'event:report' %}" class="d-flex justify-content-end"><i class="fa-solid fa-circle-exclamation fa-xs" style="color: #ff1900;"></i></a>
                 <p>Host name : {{ event.Host_name }}</p>
                 <p>Event details : {{ event.Event_details }}</p>
                 <p>Location : {{ event.Location }}</p>

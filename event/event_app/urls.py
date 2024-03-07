@@ -12,4 +12,5 @@ urlpatterns = [
     path('community/', views.community, name="community"),
     path('community/delete_chat/<int:id>', views.delete_chat, name="delete_chat"),
     path('community/update_chat/<int:id>', views.update_chat, name="update_chat"),
+    path('Report', views.report, name="report"),
 ]

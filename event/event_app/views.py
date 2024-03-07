@@ -134,3 +134,6 @@ def update_chat(request, id):
     return render(request, 'event/update_chat.html', {
         "chat" : chat
     })
+
+def report(request):
+    return render(request, 'event/report.html')
