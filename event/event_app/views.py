@@ -135,5 +135,18 @@ def update_chat(request, id):
         "chat" : chat
     })
 
-def report(request):
-    return render(request, 'event/report.html')
+def report(request, id):
+    event_data = event_info.objects.get(pk=id)
+
+    if request.method == "POST":
+        report_text = request.POST["report_user"]
+
+        obj = ReportUser(victim = request.user.username, reported_user=event_data.Host_name, report=report_text)
+        obj.save()
+        
+        return redirect('event:home')
+
+    return render(request, 'event/report.html',{
+        "event_data" : event_data,
+
+    })

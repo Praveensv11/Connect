@@ -3,5 +3,16 @@
     Report
 {% endblock %}
 {% block body %}
-    Report user
+    <div class="container pt-5">
+        <div class="text-center">
+            <h3>Report ({{ event_data.Host_name }})</h3>
+            <p>{{ event_data.Event_details }}</p>
+        
+            <form action="{% url 'event:report' event_data.id %}" method="post">
+                {% csrf_token %}
+                <textarea name="report_user"></textarea><br>
+                <button class="btn btn-danger">Report</button>
+            </form>
+        </div>
+    </div>
 {% endblock  %}

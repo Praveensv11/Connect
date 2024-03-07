@@ -23,4 +23,4 @@ class ReportUser(models.Model):
     report = models.CharField(max_length=1000, default="")
 
     def __str__(self):
-        return f"{self.victim} : {self.reported_user}"
+        return f"{self.victim} reported {self.reported_user}"
