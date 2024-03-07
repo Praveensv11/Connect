@@ -5,9 +5,11 @@ Sign up
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h6 class="text-center mt-5 mb-3">Create new account</h6>
-
+    <div class="container pt-5">
+        <div class="d-flex">
+            <a href="{% url 'event:home' %}">Main page</a>
+            <h6 class="m-5 mt-1 mb-3">Create new account</h6>
+        </div>
         {% for message in messages %}
             <p class="text-warning bg-dark p-3">{{message}}</p>
         {% endfor %}
