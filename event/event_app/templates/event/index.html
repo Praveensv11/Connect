@@ -9,8 +9,9 @@
         <br>
         {% if user.is_authenticated %}
             <h6 class="text-center">{{ user }}</h6>
-            <button class="btn btn-light btn-sm"><a href="{% url 'event:create_event' %}" class="btn btn-light btn-sm">Create event</a></button>
-
+            <button class="btn btn-light btn-sm">
+                <a href="{% url 'event:create_event' %}" class="btn btn-light btn-sm">Create event</a>
+            </button>
         {% endif %}
         <a href="{% url 'event:signin' %}" class="btn btn-secondary">Sign in</a>
         <a href="{% url 'event:signup' %}" class="btn btn-secondary">Sign up</a>
@@ -19,6 +20,7 @@
         <hr>
         {% if user.is_authenticated %}
             {% for event in events %}
+                <a href="" class="d-flex justify-content-end"><i class="fa-solid fa-circle-exclamation fa-xs" style="color: #ff1900;"></i></a>
                 <p>Host name : {{ event.Host_name }}</p>
                 <p>Event details : {{ event.Event_details }}</p>
                 <p>Location : {{ event.Location }}</p>
