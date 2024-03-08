@@ -1,0 +1,9 @@
+#reportmessage{
+    float:right;
+    color:white;
+    background-color: red;
+    font-weight: bold;
+    font-size: small;
+    padding: 2px;
+    border-radius: 6px;
+}

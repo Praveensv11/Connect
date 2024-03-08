@@ -4,6 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     messages.forEach(message => {
         setTimeout(() => {
             message.style.display = 'none'; 
-        }, 5000); 
+        }, 4000); 
     });
 });

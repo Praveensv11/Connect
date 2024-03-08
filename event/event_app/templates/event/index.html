@@ -6,6 +6,7 @@
 
 {% block head %}
     {% load static %}
+    <link href='{% static "css/index.css" %}' rel='stylesheet'>
 {% endblock %} 
 
 {% block body %}
@@ -15,20 +16,29 @@
         {% endfor %}
 
         <br>
-        {% if user.is_authenticated %}
-            <h6 class="text-center">{{ user }}</h6>
-            <button class="btn btn-light btn-sm">
-                <a href="{% url 'event:create_event' %}" class="btn btn-light btn-sm">Create event</a>
-            </button>
-        {% endif %}
-        <a href="{% url 'event:signin' %}" class="btn btn-secondary">Sign in</a>
-        <a href="{% url 'event:signup' %}" class="btn btn-secondary">Sign up</a>
-        <a href="{% url 'event:community' %}" class="btn btn-secondary">Community</a>
-    
+        <h6 class="text-center">Connect</h6>  
+
+        <div class='d-flex justify-content-between'>
+            <div>
+            {% if user.is_authenticated %}
+                <button class="btn btn-light btn-sm">
+                    <a href="{% url 'event:create_event' %}" class="btn btn-light btn-sm">Create event</a>
+                </button>
+            {% endif %}
+                <a href="{% url 'event:signin' %}" class="btn btn-secondary">Sign in</a>
+                <a href="{% url 'event:signup' %}" class="btn btn-secondary">Sign up</a>
+                <a href="{% url 'event:community' %}" class="btn btn-secondary">Community</a>
+            </div>
+            <div>
+                <h6 class="mt-2">{{ user }}</h6>
+            </div>
+        </div>
         <hr>
         {% if user.is_authenticated %}
             {% for event in events %}
-                <a href="{% url 'event:report' event.id %}" class="d-flex justify-content-end"><i class="fa-solid fa-circle-exclamation fa-xs" style="color: #ff1900;"></i></a>
+                {% comment %} report icon {% endcomment %}
+                <a href="{% url 'event:report' event.id %}" class="d-flex justify-content-end"><i class="fa-solid fa-circle-exclamation fa-xs report" style="color: #ff1900;"></i></a>
+                <p id="reportmessage"></p>
                 <p>Host name : {{ event.Host_name }}</p>
                 <p>Event details : {{ event.Event_details }}</p>
                 <p>Location : {{ event.Location }}</p>
@@ -44,5 +54,6 @@
         {% endif %}
 
         <script src="{% static 'js/messagedis.js' %}"></script>
+        <script src="{% static 'js/index.js' %}"></script>
     </div>
 {% endblock  %}
