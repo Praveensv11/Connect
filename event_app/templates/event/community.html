@@ -7,6 +7,33 @@
 {% block head %}
     {% load static %}
     <link rel='stylesheet' href="{% static 'css/community.css' %}">
+    <style>
+        #divfix {
+            bottom: 0;
+            position: fixed;
+            z-index: 3000;
+            margin:40px;
+        }        
+
+        .chat-input {
+            padding: 10px;
+            padding-left:20px;
+            font-size: 20px;
+            border:none;
+            width: 1000px;
+            box-shadow: 5px 5px 5px 5px gray;
+        }
+
+        .submit {
+            padding: 10px;
+            padding-left:20px;
+            padding-right:20px;
+            font-size: 20px;
+            box-shadow: 5px 5px 5px 5px gray;
+
+        }
+
+    </style>
 {% endblock  %}
 
 {% block body %}
@@ -24,8 +51,8 @@
                             <div class="card-header">You</div>
                             <div class="card-body text-secondary">
                                 <p class="card-text">{{ chat.chat }}
-                                    <a href="{% url 'event:delete_chat' chat.id %}"><i class="fa-solid fa-trash" style="color: #ff1414;"></i></a>
-                                    <a href="{% url 'event:update_chat' chat.id %}"><i class="fa-solid fa-marker" style="color: #63E6BE;"></i></a>    
+                                    <a href="{% url 'event:delete_chat' chat.id %}"><i class="fa-solid fa-trash fa-2xs" style="color: #d13f00;"></i></a>
+                                    <a href="{% url 'event:update_chat' chat.id %}"><i class="fa-solid fa-pen fa-2xs" style="color: #63E6BE;"></i></a>    
                                 </p>
                             </div>
                         </div>
@@ -49,11 +76,11 @@
             {% comment %} 
                     chat form
             {% endcomment %}
-            <div class="d-flex align-items-end flex-column" style="height: 200px; flex:flex-end;">          
+            <div id="divfix" class="d-flex align-items-end flex-column" style="height: 200px; flex:flex-end;">          
                 <form action="{% url 'event:community' %}" method="POST" autocomplete="off" class="mt-auto p-2">
                     {% csrf_token %%}
                     <input type="text" name="chat" id="noempty" class="chat-input">
-                    <input type="submit" class="btn btn-danger" id="submit" class="submit">
+                    <button class="submit"><i class="fa-solid fa-paper-plane fa-sm"></i></button>
                 </form>
             </div>
         </div>

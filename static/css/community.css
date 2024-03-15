@@ -6,3 +6,27 @@
     z-index: -1;
 }
 
+#divfix {
+    bottom: 0;
+    position: fixed;
+    z-index: 3000;
+    margin:40px;
+}        
+
+.chat-input {
+    padding: 10px;
+    padding-left:20px;
+    font-size: 20px;
+    border:none;
+    width: 1000px;
+    box-shadow: 5px 5px 5px 5px gray;
+}
+
+.submit {
+    padding: 10px;
+    padding-left:20px;
+    padding-right:20px;
+    font-size: 20px;
+    box-shadow: 5px 5px 5px 5px gray;
+
+}
