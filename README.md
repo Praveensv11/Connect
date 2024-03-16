@@ -13,14 +13,12 @@ No frills, just a simple way to connect with others and combat loneliness.
 
 Check out Connect on GitHub and spread the word!
 
-[Praveen SV]
+Praveen SV
 
 ## Installation
 To run Connect locally, follow these steps:
-1. Clone the repository: `git clone [https://github.com/Praveensv11/Connect]`
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run migrations: `python manage.py migrate`
-4. Start the server: `python manage.py runserver`
+  Clone the repository: `git clone [https://github.com/Praveensv11/Connect]`
+  Start the server: `python manage.py runserver`
 
 ## Contributing
 Contributions are welcome! Feel free to fork the repository and submit pull requests.
