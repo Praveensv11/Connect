@@ -21,7 +21,6 @@
                 {% if chat.name == username %}
                     <h3 class="d-flex justify-content-end">
                         <div class="card mb-3" style="max-width: 100rem;">
-                            <div class="card-header">You</div>
                             <div class="card-body text-secondary">
                                 <p class="card-text">{{ chat.chat }}
                                     <a href="{% url 'event:delete_chat' chat.id %}"><i class="fa-solid fa-trash fa-2xs" style="color: #d13f00;"></i></a>
@@ -35,8 +34,8 @@
                 {% endcomment %}
                 {% else %}
                     <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                        <div class="card-header">{{ chat.name }}</div>
                         <div class="card-body text-secondary">
+                        <p class="card-text">{{ chat.name }}</p>
                         <p class="card-text">{{ chat.chat }}</p>
                         </div>
                     </div>
